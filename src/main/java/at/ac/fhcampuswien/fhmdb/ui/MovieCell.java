@@ -112,7 +112,8 @@ public class MovieCell extends ListCell<Movie> {
                     .collect(Collectors.joining(", "));
             genre.setText(genres);
 
-            detail.setMaxWidth(this.getScene().getWidth() - 30);
+            //TODO: this.getScene().getWidth() - 30, I cba to figure out why, Paul pls fix
+            detail.setMaxWidth(840);
 
             setGraphic(layout);
         }

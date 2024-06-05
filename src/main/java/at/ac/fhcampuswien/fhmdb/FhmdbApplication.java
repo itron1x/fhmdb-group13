@@ -20,6 +20,7 @@ public class FhmdbApplication extends Application {
             scene.getStylesheets().add(Objects.requireNonNull(FhmdbApplication.class.getResource("/styles/styles.css")).toExternalForm());
             stage.setTitle("FHMDb!");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         } catch (IOException e) {
             System.err.println("Cannot load scene from " + UIComponent.HOME.path);
