@@ -29,6 +29,15 @@ public class MainController {
 
     private HamburgerBasicCloseTransition transition;
 
+    private static MainController mainController = null;
+
+    private MainController(){}
+
+    public static MainController getInstance(){
+        if(mainController == null) mainController = new MainController();
+        return mainController;
+    }
+
     public void initialize() {
         transition = new HamburgerBasicCloseTransition(hamburgerMenu);
         transition.setRate(-1);
@@ -66,7 +75,7 @@ public class MainController {
 
     public void setContent(String fxmlPath){
         FXMLLoader loader = new FXMLLoader(MainController.class.getResource(fxmlPath));
-        //loader.setControllerFactory(ControllerFactory.getFactory());
+        loader.setControllerFactory(new ControllerFactory());
         try {
             mainPane.setCenter(loader.load());
         } catch (Exception e) {

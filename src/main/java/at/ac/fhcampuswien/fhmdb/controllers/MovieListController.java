@@ -53,6 +53,15 @@ public class MovieListController implements Initializable {
 
     private State state;
 
+    private static MovieListController movieListController = null;
+
+    private MovieListController(){};
+
+    public static MovieListController getInstance(){
+        if(movieListController == null) movieListController = new MovieListController();
+        return movieListController;
+    }
+
     private final ClickEventHandler onAddToWatchlistClicked = (clickedItem) -> {
         if (clickedItem instanceof Movie movie) {
             WatchlistMovieEntity watchlistMovieEntity = new WatchlistMovieEntity(

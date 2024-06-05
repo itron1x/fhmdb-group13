@@ -17,6 +17,15 @@ import java.util.ResourceBundle;
 
 public class WatchlistController implements Initializable {
 
+    private static WatchlistController watchlistController = null;
+
+    private WatchlistController(){};
+
+    public static WatchlistController getInstance(){
+        if(watchlistController == null) watchlistController = new WatchlistController();
+        return watchlistController;
+    }
+
     @FXML
     public JFXListView watchlistView;
 
