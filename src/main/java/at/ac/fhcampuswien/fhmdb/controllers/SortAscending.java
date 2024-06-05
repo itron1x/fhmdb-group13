@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 
 import java.util.Comparator;
 
-public class SortAscending extends State {
+public class SortAscending implements State {
     @Override
     public void sortMovies(ObservableList<Movie> movies) {
         movies.sort(Comparator.comparing(Movie::getTitle));
