@@ -8,7 +8,14 @@ import java.util.List;
 public class MovieRepository {
     Dao<MovieEntity, Long> dao;
 
-    public MovieRepository() throws DataBaseException {
+    private static MovieRepository movieRepository = null;
+
+    public static MovieRepository getInstance() throws DataBaseException {
+        if (movieRepository == null) movieRepository = new MovieRepository();
+        return movieRepository;
+    }
+
+    private MovieRepository() throws DataBaseException {
         try {
             this.dao = DatabaseManager.getInstance().getMovieDao();
         } catch (Exception e) {
