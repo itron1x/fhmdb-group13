@@ -51,7 +51,7 @@ public class MovieListController implements Initializable {
 
     protected ObservableList<Movie> observableMovies = FXCollections.observableArrayList();
 
-    private State state;
+    private State state = new SortNone();
 
     private static MovieListController movieListController = null;
 
@@ -240,12 +240,7 @@ public class MovieListController implements Initializable {
     }
 
     public void sortBtnClicked(ActionEvent actionEvent) {
-        if(getState() instanceof SortAscending){
-            state = new SortDescending();
-        }
-        else{
-            state = new SortAscending();
-        }
+        state.changeState();
         state.sortMovies(observableMovies);
     }
 
