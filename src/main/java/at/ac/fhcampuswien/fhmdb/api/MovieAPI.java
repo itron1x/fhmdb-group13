@@ -21,32 +21,6 @@ public class MovieAPI {
         return url.toString();
     }
 
-    /*private static String buildUrl(String query, Genre genre, String releaseYear, String ratingFrom) {
-        StringBuilder url = new StringBuilder(URL);
-
-        if ( (query != null && !query.isEmpty()) ||
-                genre != null || releaseYear != null || ratingFrom != null) {
-
-            url.append("?");
-
-            // check all parameters and add them to the url
-            if (query != null && !query.isEmpty()) {
-                url.append("query=").append(query).append(DELIMITER);
-            }
-            if (genre != null) {
-                url.append("genre=").append(genre).append(DELIMITER);
-            }
-            if (releaseYear != null) {
-                url.append("releaseYear=").append(releaseYear).append(DELIMITER);
-            }
-            if (ratingFrom != null) {
-                url.append("ratingFrom=").append(ratingFrom).append(DELIMITER);
-            }
-        }
-
-        return url.toString();
-    }*/
-
     public static List<Movie> getAllMovies() throws MovieApiException {
         return getAllMovies(null, null, null, null);
     }
